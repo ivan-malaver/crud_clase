@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Iniciar Sesión - Sistema Agrointeligente{% endblock %}
+
+{% block extra_css %}
+<!-- Estilo propio para formularios de autenticación -->
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card">
+    <h2 class="auth-title">Bienvenido al Sistema ADSO 🌿</h2>
+    <p class="auth-subtitle">Por favor ingresa tus credenciales</p>
+
+    <!-- Formulario de login -->
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+
+      {% if form.errors %}
+      <div class="alert alert-error">
+        Usuario o contraseña incorrectos.
+      </div>
+      {% endif %}
+
+      <!-- Campo usuario/email -->
+      <div class="form-group">
+        <label for="id_username">Correo Electrónico</label>
+        <input type="email" name="username" id="id_username" placeholder="usuario@sena.edu.co" required>
+      </div>
+
+      <!-- Campo contraseña con botón para mostrar/ocultar -->
+      <div class="form-group">
+        <label for="id_password">Contraseña</label>
+        <div class="password-input">
+          <input type="password" name="password" id="id_password" placeholder="********" required>
+          <button type="button" class="toggle-password">👁️</button>
+        </div>
+        <!-- Enlace para recuperación de contraseña -->
+        <a href="{% url 'password_reset' %}" class="forgot-password">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <!-- Botón principal -->
+      <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+    </form>
+
+    <!-- Enlace a la vista de registro -->
+    <div class="auth-footer">
+      ¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate aquí</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!-- Script para alternar visibilidad de la contraseña -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.querySelector('.toggle-password');
+    const passwordInput = document.getElementById('id_password');
+
+    if (toggleBtn && passwordInput) {
+      toggleBtn.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '👁️‍🗨️';
+      });
+    }
+  });
+</script>
+{% endblock %}

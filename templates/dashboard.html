@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Panel Principal - Sistema Agrointeligente{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+  <!-- Título personalizado para el usuario autenticado -->
+  <h1 class="dashboard-title">🌱 Bienvenido(a), {{ user.username }}</h1>
+  <p class="dashboard-subtitle">Sistema Agrointeligente - ADSO SENA</p>
+
+  <!-- Módulos principales del sistema -->
+  <div class="grid-modulos">
+
+    <!-- 🔗 Sensores -->
+    <a href="{% url 'sensor-list' %}" class="modulo">
+      <img src="{% static 'img/sensores-icon.png' %}" alt="Sensores">
+      <span>Sensores</span>
+    </a>
+
+    <!-- 🔗 Lecturas Climáticas -->
+    <a href="{% url 'lectura-list' %}" class="modulo">
+      <img src="{% static 'img/clima-icon.png' %}" alt="Clima">
+      <span>Lecturas Climáticas</span>
+    </a>
+
+    <!-- 🔗 Plagas -->
+    <a href="{% url 'evento-plaga-list' %}" class="modulo">
+      <img src="{% static 'img/plagas-icon.png' %}" alt="Plagas">
+      <span>Plagas</span>
+    </a>
+
+    <!-- 🔗 Cosechas -->
+    <a href="{% url 'cosecha-list' %}" class="modulo">
+      <img src="{% static 'img/cosechas-icon.png' %}" alt="Cosechas">
+      <span>Cosechas</span>
+    </a>
+
+    <!-- 🔗 Control de Calidad -->
+    <a href="{% url 'lote-list' %}" class="modulo">
+      <img src="{% static 'img/calidad-icon.png' %}" alt="Control de Calidad">
+      <span>Control Calidad</span>
+    </a>
+
+  </div>
+</div>
+{% endblock %}

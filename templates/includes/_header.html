@@ -1,0 +1,28 @@
+<!-- templates/includes/_header.html -->
+<header class="main-header">
+  <div class="container">
+    <a href="{% url 'home' %}" class="logo">
+      <img src="{% static 'img/logo-sena.png' %}" alt="Logo ADSO SENA" class="logo-img">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="{% url 'sensores:sensor-list' %}">Sensores</a></li>
+        <li><a href="{% url 'clima:lectura-list' %}">Clima</a></li>
+        <li><a href="{% url 'plagas:tipo-plaga-list' %}">Plagas</a></li>
+        <li><a href="{% url 'cosechas:cosecha-list-create' %}">Cosechas</a></li>
+        <li><a href="{% url 'control_calidad:lote-list' %}">Calidad</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-controls">
+      {% if user.is_authenticated %}
+        <span class="welcome-msg">👋 Hola, {{ user.username }}</span>
+        <a href="{% url 'logout' %}" class="btn-outline">Cerrar sesión</a>
+      {% else %}
+        <a href="{% url 'login' %}" class="btn-outline">Ingresar</a>
+        <a href="{% url 'registro' %}" class="btn-primary">Registrarse</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

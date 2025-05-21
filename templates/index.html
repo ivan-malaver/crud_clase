@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inicio | AgroSENA{% endblock %}
+
+{% block extra_css %}
+<!-- Estilo específico para la página de inicio -->
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Bienvenido a <span class="highlight">AgroSENA</span></h1>
+        <p>Plataforma educativa para monitoreo agrícola con enfoque en ADSO - SENA.</p>
+
+        <div class="cta-buttons">
+            {% if user.is_authenticated %}
+                <!-- Enlace al panel principal (dashboard) si el usuario está logueado -->
+                <a href="{% url 'dashboard' %}" class="btn btn-primary">Ir al Panel</a>
+            {% else %}
+                <!-- Enlaces a login y registro si no ha iniciado sesión -->
+                <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
+                <a href="{% url 'registro' %}" class="btn btn-secondary">Registrarse</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <img src="{% static 'img/icon-sensor.png' %}" alt="Sensores">
+        <h3>Monitoreo IoT</h3>
+        <p>Lecturas en tiempo real desde sensores agrícolas.</p>
+    </div>
+    <div class="feature">
+        <img src="{% static 'img/icon-clima.png' %}" alt="Clima">
+        <h3>Datos Climáticos</h3>
+        <p>Conexión con estaciones y predicción del tiempo.</p>
+    </div>
+    <div class="feature">
+        <img src="{% static 'img/icon-plaga.png' %}" alt="Plagas">
+        <h3>Alertas de Plagas</h3>
+        <p>Predicciones inteligentes para prevenir infestaciones.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<!-- Script específico para animaciones o comportamiento en la landing -->
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
