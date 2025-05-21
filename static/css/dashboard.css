@@ -1,0 +1,82 @@
+/* ==============================
+   dashboard.css - Estilos del panel principal
+   Proyecto: Sistema Agrointeligente SENA ADSO 🌱
+   ============================== */
+
+:root {
+  --verde-sena: #4CAF50;
+  --verde-sena-dark: #2E7D32;
+  --gris-claro: #f4f4f4;
+  --gris-oscuro: #444;
+  --borde-radio: 10px;
+  --sombra-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --espaciado-xl: 2rem;
+}
+
+.dashboard-container {
+  padding: var(--espaciado-xl);
+  background-color: var(--gris-claro);
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: var(--verde-sena-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  font-size: 1rem;
+  color: var(--gris-oscuro);
+  opacity: 0.8;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.module-card {
+  background-color: white;
+  border-radius: var(--borde-radio);
+  box-shadow: var(--sombra-md);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+}
+
+.module-card h3 {
+  color: var(--verde-sena-dark);
+  margin-bottom: 0.8rem;
+}
+
+.module-card p {
+  color: var(--gris-oscuro);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.module-card a {
+  text-decoration: none;
+  color: white;
+  background: var(--verde-sena);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--borde-radio);
+  display: inline-block;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.module-card a:hover {
+  background: var(--verde-sena-dark);
+}
