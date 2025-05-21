@@ -3,40 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bloque editable de título para cada plantilla -->
     <title>{% block title %}Plataforma AgroSENA{% endblock %}</title>
 
-    <!-- Carga de etiquetas estáticas de Django -->
     {% load static %}
     
-    <!-- Fuente principal -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Estilos base del proyecto -->
+    <!-- Fuentes y estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-
-    <!-- Bloque adicional para hojas de estilo personalizadas por página -->
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- CABECERA -->
+    <!-- Cabecera con navegación -->
     <header class="main-header">
         <div class="container">
             <a href="/" class="logo">🌱 AgroSENA</a>
-
-            <!-- Navegación principal -->
             <nav class="main-nav">
                 <ul>
-                    <!-- 🚫 Importante: ya NO usamos namespaces como sensores: o plagas: -->
                     <li><a href="{% url 'sensor-list' %}">Sensores</a></li>
                     <li><a href="{% url 'lectura-list' %}">Clima</a></li>
                     <li><a href="{% url 'evento-plaga-list' %}">Plagas</a></li>
                     <li><a href="{% url 'cosecha-list' %}">Cosechas</a></li>
                 </ul>
             </nav>
-
-            <!-- Botones de sesión -->
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
                     <span class="user-greeting">Hola, {{ user.email }}</span>
@@ -48,19 +36,19 @@
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- Contenido principal -->
     <main class="main-content">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- Pie de página -->
     <footer class="main-footer">
         <div class="container">
             <p>&copy; 2025 AgroSENA. Formación en desarrollo de software - ADSO SENA.</p>
         </div>
     </footer>
 
-    <!-- JavaScript global y bloque para JS adicional -->
+    <!-- Scripts -->
     {% block javascript %}
         <script src="{% static 'js/main.js' %}"></script>
     {% endblock %}
