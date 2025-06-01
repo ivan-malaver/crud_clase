@@ -1,0 +1,121 @@
+/* ========================
+   Variables CSS
+======================== */
+:root {
+    --gris-claro: #f8f9fa;
+    --gris-oscuro: #343a40;
+    --verde-sena: #4caf50;
+    --verde-sena-dark: #388e3c;
+    --sombra-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================
+   General Styles
+======================== */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+}
+
+h1, h3 {
+    font-weight: bold;
+}
+
+/* ========================
+   Hero Section
+======================== */
+.hero {
+    background: linear-gradient(to right, var(--verde-sena), var(--verde-sena-dark));
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero .highlight {
+    color: #fffacd;
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+    background-color: white;
+    color: var(--verde-sena);
+    border: 2px solid white;
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-sena);
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: var(--gris-oscuro);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: var(--gris-oscuro);
+    transform: scale(1.05);
+}
+
+/* ========================
+   Features Section
+======================== */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 1rem;
+    background-color: white;
+}
+
+.feature {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--gris-claro);
+    border-radius: 8px;
+    box-shadow: var(--sombra-md);
+    transition: transform 0.2s ease;
+}
+
+.feature img {
+    max-width: 100px;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    margin: 1rem 0;
+    font-size: 1.25rem;
+}
+
+.feature p {
+    color: var(--gris-oscuro);
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Panel Principal - Sistema Agrointeligente{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+  <!-- Header con animación -->
+  <header class="dashboard-header">
+    <h1 class="dashboard-title animate-pop-in">🌱 Bienvenido, <span class="username">{{ user.username }}</span></h1>
+    <p class="dashboard-subtitle">Sistema Agrointeligente - ADSO SENA</p>
+    <div class="header-decoration"></div>
+  </header>
+
+  <!-- Módulos principales con diseño de tarjetas modernas -->
+  <div class="module-grid">
+    <!-- Sensores -->
+    <div class="module-card sensor-module">
+      <div class="module-icon">
+        <img src="{% static 'img/sensores-icon.png' %}" alt="Sensores">
+      </div>
+      <h3>Monitoreo de Sensores</h3>
+      <p>Visualiza datos en tiempo real de tus sensores agrícolas</p>
+      <a href="{% url 'sensor-list' %}" class="module-button">Acceder</a>
+    </div>
+
+    <!-- Clima -->
+    <div class="module-card climate-module">
+      <div class="module-icon">
+        <img src="{% static 'img/clima-icon.png' %}" alt="Clima">
+      </div>
+      <h3>Lecturas Climáticas</h3>
+      <p>Registro y análisis de condiciones ambientales</p>
+      <a href="{% url 'lectura-list' %}" class="module-button">Acceder</a>
+    </div>
+
+    <!-- Plagas -->
+    <div class="module-card pest-module">
+      <div class="module-icon">
+        <img src="{% static 'img/plagas-icon.png' %}" alt="Plagas">
+      </div>
+      <h3>Control de Plagas</h3>
+      <p>Gestión y prevención de plagas en cultivos</p>
+      <a href="{% url 'evento-plaga-list' %}" class="module-button">Acceder</a>
+    </div>
+
+    <!-- Cosechas -->
+    <div class="module-card harvest-module">
+      <div class="module-icon">
+        <img src="{% static 'img/cosechas-icon.png' %}" alt="Cosechas">
+      </div>
+      <h3>Gestión de Cosechas</h3>
+      <p>Planificación y seguimiento de cultivos</p>
+      <a href="{% url 'cosecha-list' %}" class="module-button">Acceder</a>
+    </div>
+
+    <!-- Calidad -->
+    <div class="module-card quality-module">
+      <div class="module-icon">
+        <img src="{% static 'img/calidad-icon.png' %}" alt="Control de Calidad">
+      </div>
+      <h3>Control de Calidad</h3>
+      <p>Análisis y certificación de productos</p>
+      <a href="{% url 'lote-list' %}" class="module-button">Acceder</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
